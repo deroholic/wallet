@@ -15,12 +15,12 @@ import (
 	"github.com/chzyer/readline"
 )
 
-var bridgeRegistry = "f12925861f2872a550cd7e428cf1d6f1302888a1137340fc95078d893ba20ff7"
+var bridgeRegistry = "9bd7382be154ccfb981d1a0960f4c5b0227349980ec6446a2318d1401b8b738d"
 
 var testnet bool
 var wallet_password string
 var wallet_file = "wallet.db"
-var daemon_address = "127.0.0.1:10102"
+var daemon_address = "127.0.0.1:20000"
 
 var contracts map[string]string
 var decimals map[string]int
@@ -70,7 +70,7 @@ func displayTokens() {
 		for key, value := range vars {
 			s := strings.Split(key, ":")
 			if s[0] == "s" {
-				fee_str, _ := d.DeroGetVar(value.(string), "bridgefee")
+				fee_str, _ := d.DeroGetVar(value.(string), "bridgeFee")
 				fee, _ := strconv.Atoi(fee_str)
 
 				dec_str, _ := d.DeroGetVar(value.(string), "decimals")
